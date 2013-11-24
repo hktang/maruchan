@@ -13,9 +13,9 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
+	<div id="primary" class="container content-area">
+		<main  class="site-main" role="main">
+		<div id="main" class="row">
 		<?php if ( have_posts() ) : ?>
 
 			<?php /* Start the Loop */ ?>
@@ -31,14 +31,14 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php maruchan_content_nav( 'nav-below' ); ?>
+			<?php //maruchan_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
 
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
-
+		</div><!-- .row -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

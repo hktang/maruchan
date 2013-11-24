@@ -2,20 +2,23 @@
 /**
  * @package maruchan
  */
-?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-	<div class="entry-thumb">
-		<?php if ( has_post_thumbnail() ) {
-		  the_post_thumbnail('thumbnail'); 
-		} ?>
-	</div><!-- .entry-summary -->
-	<?php else : ?>
-	<div class="entry-thumb">
-		<?php if ( has_post_thumbnail() ) {
-		  the_post_thumbnail('thumbnail'); 
-		} ?>
-	</div><!-- .entry-content -->
-	<?php endif; ?>
-</article><!-- #post-## -->
+	$class_array = get_post_class( 'col-sm-1');
+	$class_attr = '';
+	foreach ($class_array as $v) {$class_attr .= $v . ' '; }
+?>
+	<article id="post-<?php the_ID(); ?>" class="<?php  echo $class_attr; ?>">
+		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
+		<div class="entry-thumb">
+			<?php if ( has_post_thumbnail() ) {
+			  the_post_thumbnail('thumbnail'); 
+			} ?>
+		</div><!-- .entry-summary -->
+		<?php else : ?>
+		<div class="entry-thumb">
+			<?php if ( has_post_thumbnail() ) {
+			  the_post_thumbnail('thumbnail'); 
+			} ?>
+		</div><!-- .entry-content -->
+		<?php endif; ?>
+	</article><!-- #post-## -->

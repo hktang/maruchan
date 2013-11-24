@@ -17,7 +17,7 @@ function maruchan_jetpack_setup() {
 	    'container'      => 'main',
 	    'wrapper'        => false,
 	    'render'         => false,
-	    'posts_per_page' => 36
+	    'posts_per_page' => 40
 	) );
 }
 add_action( 'after_setup_theme', 'maruchan_jetpack_setup' );
