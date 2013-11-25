@@ -6,33 +6,43 @@
 	date_default_timezone_set('Asia/Tokyo');
 	$today = date("Y-m-d");
 	$ds = array( 0 => "Sun", 1 => "Mon",  2 => "Tue", 3 => "Wed", 4 => "Thu", 5 => "Fri", 6 => "Sat" );
+	$ms = array( 0 => "Feb", 1 => "Mar",  2 => "Apr", 3 => "May", 4 => "Jun", 5 => "Jul", 6 => "Aug", 7 => "Sep", 8 => "Oct", 9=> "Nov", 10 => "Dec" );
 	$dow = jddayofweek ( cal_to_jd(CAL_GREGORIAN, substr($today, 5, 2), substr($today, 8,2), substr($today, 0, 4)) , 0 ); 
 	$i = 365;
 
-	while ($i > 0)
- 	{
-		$new_dow = intval($dow) - $i; 
-		if ($new_dow % 7 < 0) 
-		  {
-			$new_dow = 7 - (abs($new_dow) % 7);
-		  }else if ($new_dow % 7 == 0)
-		  {
-			$new_dow = 0;
-		  }
+	while ($i > 0){
 		
+		$new_dow = intval($dow) - $i; 
+		$new_date = date( 'Y-m-d', strtotime( $today . "-{$i} day" ));
+		
+		if ($new_dow % 7 < 0) 
+		{
+			$new_dow = 7 - (abs($new_dow) % 7);
+		}else if ($new_dow % 7 == 0)
+		{
+			$new_dow = 0;
+		}
+		
+		if (substr($new_date, 8) == '01' && substr($new_date, 5) == '01-01'){ ?>
+			<span class="cal-year-label" id="cal-year-<?php echo substr($new_date, 0, 4); ?>"></span>
+		<?php }else if (substr($new_date, 8) == '01' ){ 
+			$the_m = substr($new_date, 5, 2);
+			?>
+			<span class="cal-month-label" id="cal-month-<?php echo $ms[intval($the_m)-2]; ?>"></span>
+		<?php }
 		if ($i == 365 ){ ?>
 			<div id="cal-week-1" class="cal-week">
-		<?php } else if ($new_dow == 0 ){ ?>
+		<?php }else if($new_dow == 0 ){ ?>
 			<div class="cal-week">
 		<?php } ?>
-			<div class="cal-day-box <?php echo "cal-" . $ds[$new_dow]; ?>" id="<?php echo date( 'Y-m-d', strtotime( $today . "-{$i} day" ) ); $i--; ?>"></div>
+			<div class="cal-day-box <?php echo "cal-" . $ds[$new_dow]; ?>" id="<?php echo $new_date; $i--; ?>"></div>
 		<?php if ($new_dow == 6){ ?>
-			</div><!-- .cal-week -->
+			</div>
 		<?php } 
 	} ?>
-	<?php if ($dow == 0){ ?>
+	<?php if ($dow == 0): ?>
 		<div class="cal-week">
-	<?php } ?>
+	<?php endif; ?>
 		<div class="cal-day-box <?php echo "cal-" . $ds[$dow]; ?>" id="<?php echo $today; ?> cal-day-today"></div>
 	  </div><!-- .cal-week -->
 

@@ -38,14 +38,19 @@ div#primary {
  * Calendar belt
  */
 div.cal-day-box {
-	width: 12px;
-	height:12px;
-	border:1px solid #777;
+	width: 10px;
+	height:10px;
+	border:1px solid #333;
+	margin:2px;
 	float:left;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 
-div#cal-week-1 div.cal-day-box{
+div#cal-week-1{
 	float:right;
+	width:98px;
 }
 
 div.cal-week {
@@ -53,5 +58,5 @@ div.cal-week {
 }
 
 div#home-cal-div {
-	width:84px;
+	width:98px;
 }
