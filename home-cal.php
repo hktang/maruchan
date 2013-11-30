@@ -9,7 +9,7 @@
 
 	function get_cal_extra ($no_of_days_before)
 	{
-		$today = date("Y-m-d");
+		$today = date("Y-m-d"); 
 		$dow = jddayofweek ( cal_to_jd(CAL_GREGORIAN, substr($today, 5, 2), substr($today, 8,2), substr($today, 0, 4)) , 0 ); 
 		$new_date = date( 'Y-m-d', strtotime( $today . "-{$no_of_days_before} day" ));
 		$new_dow = intval($dow) - $no_of_days_before; 
@@ -47,19 +47,17 @@
 		if($new_i_extra['then_dow'] == 0 ){ ?>
 			<div class="cal-week">
 		<?php } ?>
-			<div class="cal-day-box <?php echo "cal-" . $ds[$new_i_extra['then_dow']]; ?>" id="<?php echo $new_i_extra['then_date']; $i--; ?>"></div>
-		
+			<div data-toggle="tooltip" title="<?php echo $new_i_extra['then_date']; ?>" class="cal-day-box <?php echo "cal-" . $ds[$new_i_extra['then_dow']]; ?>" id="<?php echo $new_i_extra['then_date']; $i--; ?>"></div>
 		<?php
 			//add month label, and for Jan, add year label
 			if (substr($new_i_extra['then_date'], 8) == '01' && substr($new_i_extra['then_date'], 5) == '01-01'){ ?>
-				<span class="cal-year-label" id="cal-year-<?php echo substr($new_i_extra['then_date'], 0, 4); ?>"></span>
+				<span class="cal-month-label cal-year-label" id="cal-year-<?php echo $the_year = substr($new_i_extra['then_date'], 0, 4); ?>"><p><?php echo $the_year; ?></p></span>
 			<?php }else if (substr($new_i_extra['then_date'], 8) == '01' )
 				  { 
 					$the_m = substr($new_i_extra['then_date'], 5, 2);
 			?>
-				<span class="cal-month-label" id="cal-month-<?php echo $ms[intval($the_m)-2]; ?>"></span>
+				<span class="cal-month-label" id="cal-month-<?php echo $the_month = $ms[intval($the_m)-2]; ?>"><p><?php echo $the_month; ?></p></span>
 		<?php } 
-		
 	 	if ($new_i_extra['then_dow'] == 6){ ?>
 			</div>
 		<?php } 
@@ -67,7 +65,7 @@
 	<?php if ($new_i_extra['dow'] == 0): ?>
 		<div class="cal-week">
 	<?php endif; ?>
-		<div class="cal-day-box <?php echo "cal-" . $ds[$new_i_extra['dow']]; ?>" id="<?php echo $new_i_extra['today']; ?> cal-day-today"></div>
+		<div data-toggle="tooltip" title="<?php echo $new_i_extra['today']; ?>" class="cal-day-box <?php echo "cal-" . $ds[$new_i_extra['dow']]; ?> cal-day-today" id="<?php echo $new_i_extra['today']; ?>"></div>
 	  </div>
 
 </div><!-- #home-cal-div -->
