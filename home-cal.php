@@ -1,7 +1,10 @@
 <link rel='stylesheet' id='maruchan-style-css'  href='http://dengxiaojun.com/wp-content/themes/maruchan/style.css?ver=3.7.1' type='text/css' media='all' />
 
 <div id="home-cal-div">
-<?php	
+<?php
+	$time_start = microtime(true); 
+	
+	
 	date_default_timezone_set('Asia/Tokyo');
 	$ds = array( 0 => "Sun", 1 => "Mon",  2 => "Tue", 3 => "Wed", 4 => "Thu", 5 => "Fri", 6 => "Sat" );
 	$ms = array( 0 => "Feb", 1 => "Mar",  2 => "Apr", 3 => "May", 4 => "Jun", 5 => "Jul", 6 => "Aug", 7 => "Sep", 8 => "Oct", 9=> "Nov", 10 => "Dec" );
@@ -67,5 +70,9 @@
 	<?php endif; ?>
 		<div data-toggle="tooltip" title="<?php echo $new_i_extra['today']; ?>" class="cal-day-box <?php echo "cal-" . $ds[$new_i_extra['dow']]; ?> cal-day-today" id="<?php echo $new_i_extra['today']; ?>"></div>
 	  </div>
-
 </div><!-- #home-cal-div -->
+<?php 
+	$time_end = microtime(true); 
+	$execution_time = ($time_end - $time_start);
+	echo "<p style='color:#333;'>Renderded in: ".$execution_time." seconds.</p>";
+?>
