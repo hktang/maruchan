@@ -37,6 +37,15 @@ div#primary {
 /*
  * Calendar belt
  */
+
+div#home-cal-div {
+	width:108px;
+	padding:0 10px 10px 10px;
+	position:fixed;
+	top:50px;
+	left:0px;
+}
+
 div.cal-day-box {
 	width: 10px;
 	height:10px;
@@ -49,13 +58,6 @@ div.cal-day-box {
 div.cal-week {
 	clear:both;
 	height:11px;
-}
-
-div#home-cal-div {
-	width:108px;
-	margin-left:50px;
-	padding:0 10px 10px 10px;
-	border:1px solid #333;
 }
 
 div.cal-week span {

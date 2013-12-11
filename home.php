@@ -34,10 +34,11 @@ get_header(); ?>
 			<?php //maruchan_content_nav( 'nav-below' ); ?>
 
 		<?php else : ?>
-
 			<?php get_template_part( 'content', 'none' ); ?>
-
 		<?php endif; ?>
+		
+		<?php get_template_part('home', 'cal'); ?>
+		
 		</div><!-- .row -->
 		</main><!-- #main -->
 	</div><!-- #primary -->

@@ -1,5 +1,3 @@
-<link rel='stylesheet' id='maruchan-style-css'  href='http://dengxiaojun.com/wp-content/themes/maruchan/style.css?ver=3.7.1' type='text/css' media='all' />
-
 <div id="home-cal-div">
 <?php
 	$time_start = microtime(true); 
@@ -71,8 +69,3 @@
 		<div data-toggle="tooltip" title="<?php echo $new_i_extra['today']; ?>" class="cal-day-box <?php echo "cal-" . $ds[$new_i_extra['dow']]; ?> cal-day-today" id="<?php echo $new_i_extra['today']; ?>"></div>
 	  </div>
 </div><!-- #home-cal-div -->
-<?php 
-	$time_end = microtime(true); 
-	$execution_time = ($time_end - $time_start);
-	echo "<p style='color:#333;'>Renderded in: ".$execution_time." seconds.</p>";
-?>

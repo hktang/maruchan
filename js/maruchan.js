@@ -1,3 +1,7 @@
+/*
+ * Created with love and passion by Maruchan's papachan
+*/
+
 jQuery(function($) {
 	var dates = [];
 	
@@ -12,5 +16,11 @@ jQuery(function($) {
 	    ++dates_obj[dates[i]];
 	}
 	
-	console.log(dates_obj);
+	for (key in dates_obj)
+	{
+		$("div#"+key).addClass("pics-" + dates_obj[key]);
+		console.log(key);
+	}
+	
+	$("#2013-11-01").data("num-of-pics", '99');
 });
