@@ -1,14 +1,18 @@
-/*
- * Created with love and passion by Maruchan's papachan
-*/
-
 jQuery(function($) {
+
+	/*
+	 * Created with love and passion by Maruchan's papachan
+	*/
+
 	var dates = [];
+	var maxNumOfPics = 0;
+	var rgbMin = 80;
 	
 	$("article").each(function(){
 		dates.push($(this).attr('data'));
 	});
 	
+	//get dates of posts as an array
 	var dates_obj = { };
 	for(i = 0; i < dates.length; ++i) {
 	    if(!dates_obj[dates[i]])
@@ -16,11 +20,26 @@ jQuery(function($) {
 	    ++dates_obj[dates[i]];
 	}
 	
+	//get highest number of daily pics
 	for (key in dates_obj)
-	{
-		$("div#"+key).addClass("pics-" + dates_obj[key]);
-		console.log(key);
+	{	
+		var numOfPics = dates_obj[key];
+		if (numOfPics > maxNumOfPics)
+			maxNumOfPics = numOfPics;
 	}
 	
-	$("#2013-11-01").data("num-of-pics", '99');
+	//add style to cal box with pics
+	for (key in dates_obj)
+	{	
+		var numOfPics = dates_obj[key];
+		if (numOfPics == maxNumOfPics)
+			rgbVal = 255;
+		else if (numOfPics == 1)
+			rgbVal = rgbMin;
+ 		else 
+			rgbVal = rgbMin + Math.floor( (255 - rgbMin) / (maxNumOfPics - 1) ) * numOfPics;
+		
+		$("#"+key).css("background-color", "rgb(" + rgbVal + ", " + rgbVal + ", " + rgbVal + ")");
+	}
+
 });

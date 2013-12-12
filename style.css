@@ -71,6 +71,7 @@ div.cal-week p {
 	font-size:10px;
 	line-height:10px;
 	margin:0;
+	margin-top:10px;
 	text-align:left;
 	text-transform:uppercase;
 	transform:rotate(90deg);
