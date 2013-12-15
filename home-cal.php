@@ -1,8 +1,5 @@
 <div id="home-cal-div">
 <?php
-	$time_start = microtime(true); 
-	
-	
 	date_default_timezone_set('Asia/Tokyo');
 	$ds = array( 0 => "Sun", 1 => "Mon",  2 => "Tue", 3 => "Wed", 4 => "Thu", 5 => "Fri", 6 => "Sat" );
 	$ms = array( 0 => "Feb", 1 => "Mar",  2 => "Apr", 3 => "May", 4 => "Jun", 5 => "Jul", 6 => "Aug", 7 => "Sep", 8 => "Oct", 9=> "Nov", 10 => "Dec" );

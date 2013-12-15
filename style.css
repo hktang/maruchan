@@ -33,6 +33,13 @@ div#primary {
 	margin-top: 51px;
 }
 
+/*
+ * Home grid
+ */
+div.entry-thumb
+{
+	display:none;
+}
 
 /*
  * Calendar belt
@@ -44,6 +51,7 @@ div#home-cal-div {
 	position:fixed;
 	top:50px;
 	left:0px;
+	display:none;
 }
 
 div.cal-day-box {
