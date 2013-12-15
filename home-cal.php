@@ -32,11 +32,13 @@
 	
 	$cal_i_extra = get_cal_extra($i);
 	
+	//make the first day to start at Sunday
 	while ( $cal_i_extra['then_dow'] != 0 ) {
 		$cal_i_extra = get_cal_extra($i-1);
 		$i--; 
 	}
-
+	
+	//create the cal belt
 	while ($i > 0){
 		
 		$new_i_extra = get_cal_extra($i);

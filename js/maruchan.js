@@ -8,7 +8,9 @@ jQuery(function($) {
 		$(this).fadeIn(ranInt);
 	});
 	
-	$(window).load(function(){showCalBelt();});
+	$(window).load(function(){
+		showCalBelt();
+	});
 	
 	/*
 	 * Calendar belt

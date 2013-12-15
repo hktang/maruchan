@@ -82,7 +82,7 @@ add_action( 'widgets_init', 'maruchan_widgets_init' );
 function maruchan_scripts() {
 	wp_enqueue_style( 'maruchan-style', get_stylesheet_uri() );
 	
-	wp_enqueue_script( 'maruchan-bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array(), '3.0.2', true );
+	wp_enqueue_script( 'maruchan-bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '3.0.2', true );
 	wp_enqueue_script( 'maruchan-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 	wp_enqueue_script( 'maruchan-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
