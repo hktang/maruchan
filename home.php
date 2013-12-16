@@ -31,8 +31,6 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php //maruchan_content_nav( 'nav-below' ); ?>
-
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
@@ -41,6 +39,7 @@ get_header(); ?>
 		
 		</div><!-- .row -->
 		</main><!-- #main -->
+		<?php maruchan_content_nav( 'nav-below' ); ?>
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>

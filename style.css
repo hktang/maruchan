@@ -34,6 +34,11 @@ div#primary {
 }
 
 /*
+ * Navigation
+*/
+
+
+/*
  * Home grid
  */
 div.entry-thumb
@@ -46,12 +51,12 @@ div.entry-thumb
  */
 
 div#home-cal-div {
+	display:none;
 	width:108px;
 	padding:0 10px 10px 10px;
 	position:fixed;
 	top:80px;
 	left:0px;
-	display:none;
 }
 
 div.cal-day-box {
