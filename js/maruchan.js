@@ -3,16 +3,16 @@ jQuery(document).ready(function($) {
 	 * Home grid
 	*/
 	
+	var fadeInDuration = 2000;
 	var winW = $(window).width();
 
-	if (winW > 1280)
-		showCalBelt();
-
 	$(window).load(function(){
-		$("div.entry-thumb").each(function(){
-			var ranInt = 1000+Math.random()*4000;
-			$(this).fadeIn(ranInt);
+		$("div.entry-thumb>img").each(function(){
+			$(this).fadeIn(fadeInDuration);
 		});
+		
+		if (winW > 1280)
+			showCalBelt();
 	});
 
 	/*

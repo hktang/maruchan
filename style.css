@@ -33,6 +33,10 @@ div#primary {
 	margin-top: 80px;
 }
 
+div#main {
+	min-height: 610px;
+}
+
 /*
  * Navigation
 */
@@ -41,9 +45,9 @@ div#primary {
 /*
  * Home grid
  */
-div.entry-thumb
+div.entry-thumb > img
 {
-	display:none;
+	display: none;
 }
 
 /*
